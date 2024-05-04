@@ -1,0 +1,20 @@
+<div id=<%= dom_id tutorial %> class="bg-slate-200 p-3 rounded-lg h-[320px] w-[300px] m-2">
+  <p>
+    <%= image_tag(tutorial.image, style:"height: 200px; width: 100%;", class:"rounded-md object-cover")%>
+  </p>
+  <p class="my-1 flex text-2xl font-bold ml-1 truncate">
+    <%= tutorial.title %>
+  </p>
+  <div class="flex justify-center">
+    <%= link_to "Watch", tutorial, class: "rounded-lg py-3 px-4 bg-gray-100 flex-1 m-1 text-center font-bold" %>
+    <% if current_user %>
+      <% if tutorial.user_id == current_user.id%>
+        <%= link_to "Edit", edit_tutorial_path(tutorial), 
+        class:"rounded-lg p-3 bg-blue-500 text-slate-100 flex-1 m-1 text-center font-bold" %>
+
+      <%end%>
+    <%end%>
+    
+
+  </div>
+</div>

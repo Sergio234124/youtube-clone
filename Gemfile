@@ -4,7 +4,6 @@ ruby "3.2.3"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.1.3", ">= 7.1.3.2"
-
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
@@ -28,7 +27,7 @@ gem "jbuilder"
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
-
+gem 'devise', '~> 4.2'
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 
@@ -65,3 +64,12 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+group :production do
+  gem 'pg', '~> 1.5', '>= 1.5.4'
+  gem 'rails_12factor', '~> 0.0.3'
+end
+
+gem "punching_bag"
+gem "tailwindcss-rails", "~> 2.5"
+gem 'haml', '~> 6.3'
+gem 'will_paginate', '~> 3.1'

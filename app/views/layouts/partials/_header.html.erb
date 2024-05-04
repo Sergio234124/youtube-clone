@@ -1,0 +1,20 @@
+<div class="max-w-screen h-[10vh] bg-white border-b-2 border-gray-50  border-opacity-10
+ bg-opacity-30 backdrop-filter backdrop-blur-sm flex items-center top-0 sticky">
+    <%= link_to 'Bright.', root_path, class:"font-bold text-black ml-5 text-2xl" %>
+    <div class="w-screen flex justify-end mr-10 space-x-10 items-center select-none">
+
+        <%= link_to 'Home', root_path, class: "font-semibold text-slate-900" %>
+        <%= link_to 'Pricing', home_pricing_path, class: "font-semibold text-slate-900" %>
+        <%= link_to 'About', home_about_path, class: "font-semibold text-slate-900" %>
+        <%= link_to 'Tutorials', tutorials_path,class: "font-semibold text-slate-900" %>
+        <% if user_signed_in?%>
+            <%= link_to 'User settings', edit_user_registration_path, class: "font-semibold text-slate-900" %>
+            <%= link_to 'Log Out', destroy_user_session_path,method: :delete, class: "font-semibold text-slate-900" %>
+            <%= link_to "New tutorial", new_tutorial_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+        <%else%>
+            <%= link_to 'Log In', new_user_session_path, class: "font-semibold text-slate-900" %>
+            <%= link_to 'Sign Up', new_user_registration_path, class: "font-semibold text-slate-900" %>
+        <%end%>
+
+    </div>
+</div>

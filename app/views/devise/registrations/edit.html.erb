@@ -1,0 +1,51 @@
+<div class="flex flex-col items-center justify-start mt-10 h-[90vh]">  
+  <h2 class="text-7xl font-bold">
+    User Settings
+  </h2>
+
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <div class="bg-slate-200 p-5 rounded-md mt-8">
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+      <div class="field">
+        <%= f.label :email , class:"font-bold text-2xl"%><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email",class:"mt-1 min-w-[40vw] h-[3vw] p-2 text-xl outline outline-2 outline-slate-600 rounded-sm" %>
+      </div>
+
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <% end %>
+
+      <div class="field">
+        <%= f.label :password , class:"font-bold text-2xl"%><i> (leave blank if you don't want to change it)</i><br />
+        <%= f.password_field :password, autocomplete: "new-password",class:"mt-1 min-w-[40vw] h-[3vw] p-2 text-xl outline outline-2 outline-slate-600 rounded-sm" %>
+        <% if @minimum_password_length %>
+          <br />
+          <em><%= @minimum_password_length %> characters minimum</em>
+        <% end %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password_confirmation, class:"font-bold text-2xl" %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password",class:"mt-1 min-w-[40vw] h-[3vw] p-2 text-xl outline outline-2 outline-slate-600 rounded-sm" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :current_password, class:"font-bold text-2xl" %> <i>(we need your current password to confirm your changes)</i><br />
+        <%= f.password_field :current_password, autocomplete: "current-password",class:"mt-1 min-w-[40vw] h-[3vw] p-2 text-xl outline outline-2 outline-slate-600 rounded-sm  " %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Update", class:"bg-black text-white font-bold mt-5  p-3 rounded-md cursor-pointer" %>
+      </div>
+    <% end %>
+
+    <div class="flex items-center justify-between mt-5">
+      <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete,
+        class: "text-red-500 underline"%>
+      <%= link_to "Back", :back, class:"font-semibold flex justify-end" %>
+
+
+    </div>
+    </div>
+</div>

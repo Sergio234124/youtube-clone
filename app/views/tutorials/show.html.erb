@@ -1,0 +1,20 @@
+<div class="md:w-2/3">
+  <% if notice.present? %>
+    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+  <% end %>
+
+  <%= render "tutorials/page"%>
+  <div class="flex">
+    <%if current_user%>
+      <% if @tutorial.user_id == current_user.id %>
+        <%= link_to "Edit this post", edit_tutorial_path(@tutorial),class: "m-2 rounded-lg py-3 px-5 text-slate-200 font-bold bg-blue-500 inline-block" %>
+
+      <%end%>
+    <%end%>
+    <%= @tutorial.hits%>
+    <% if @tutorial.video.attached? %>
+      <%= link_to "Download", download_tutorial_path(@tutorial), class:"mt-2 rounded-lg py-3 px-5 bg-gray-100 font-bold"%>
+    <%end%>
+    <%= link_to "Back to posts", tutorials_path, class: "m-2 rounded-lg py-3 px-5 bg-slate-200 inline-block font-medium" %>
+  </div>
+</div>

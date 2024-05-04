@@ -1,0 +1,22 @@
+<%if current_user%>
+  <% if @tutorial.user_id == current_user.id %>
+    <div class="mx-auto md:w-2/3 w-full">
+      <h1 class="font-bold text-4xl">Editing tutorial</h1>
+
+      <%= render "form", tutorial: @tutorial %>
+        <%= link_to 'Destroy', tutorials_path, method: :delete, data: { confirm: 'Are you sure?' }, 
+        class: "m-1 rounded-lg p-3 bg-red-500 font-bold text-slate-100" %>
+
+      <%= link_to "Show this tutorial", @tutorial, class: "ml-2 rounded-lg py-3 px-5 bg-slate-200 inline-block font-medium" %>
+      <%= link_to "Back to tutorials", tutorials_path, class: "ml-2 rounded-lg py-3 px-5 bg-slate-200 inline-block font-medium" %>
+    </div>
+  <%else%>
+    <div>
+      <h1 class="font-bold text-7xl h-[60vh] flex justify-center items-center text-center">
+        You can't edit this post because you are not it's owner /:
+      </h1>
+    </div>
+  <%end%>
+<%else%>
+  <h1>You can't do this action because you haven't signed up</h1>
+<%end%>

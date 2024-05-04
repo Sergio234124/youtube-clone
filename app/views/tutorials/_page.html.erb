@@ -1,0 +1,6 @@
+<div class="w-[75vw] m-2">
+    <video controls class=" rounded-lg">
+        <source src="<%= url_for(@tutorial.video)%>"  type="video/mp4">
+    </video>
+    created at <%= @tutorial.created_at%>
+</div>
