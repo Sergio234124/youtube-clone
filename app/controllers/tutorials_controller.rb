@@ -2,15 +2,17 @@ class TutorialsController < ApplicationController
   before_action :set_tutorial, only: %i[ show edit update destroy ]
   before_action :authenticate_user!, except: [:index, :show]
   # GET /tutorials or /tutorials.json
+ 
   def index
-    @tutorials = Tutorial.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 1)
+    @q = Tutorial.ransack(params[:q])
+    @tutorials = @q.result.order("created_at DESC").paginate(:page => params[:page], :per_page => 30)
+    
   end
 
   # GET /tutorials/1 or /tutorials/1.json
   def show
-    @tutorial.punch(request)
-
   end
+
   def download
     @tutorial = Tutorial.find(params[:id])
     send_data @tutorial.video.download, filename: @tutorial.video.filename.to_s

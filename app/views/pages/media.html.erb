@@ -1,8 +1,16 @@
-<div>
+<div class="m-8 flex flex-col items-center">
+    <% if current_user %>
+  
+    <h1 class="font-bold text-2xl ">
+      Here's your dashboard:
+    </h1>
+    <%= search_form_for @q do |f| %>
+      <%= f.text_field :title_cont, class: 'w-[53vw] p-1 h-full rounded-l-[4.75px]', placeholder:"Search here the topic you want to learn" %>
+      <%= f.submit class: 'bg-blue-400 p-2  cursor-pointer text-slate-200 rounded-r-[4.75px] font-bold' %>
+    <% end %>
+    <div id="posts" class="flex justify-start w-screen mt-5">
+      <%= render @tutorials %>
+    </div>
+  <%end%>
 
-  <h1 class="font-bold text-4xl">
-    <!--Message-->
-  </h1>
-    <!--/*
-    TODO:Render the posts*/-->
 </div>

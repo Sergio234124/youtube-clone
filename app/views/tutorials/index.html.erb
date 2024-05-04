@@ -1,12 +1,21 @@
-<div class="w-full  ">
+<div class="flex flex-col items-center justify-center border-red-500 min-w-screen " >
   <% if notice.present? %>
     <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
   <% end %>
 
 
+  <div class="border-4 flex rounded-[8.5px] border-red-500 m-5 min-w-screen justify-start gap-0 ">
+    <%= search_form_for @q do |f| %>
+      <%= f.text_field :title_cont, class: 'w-[53vw] p-1 h-full rounded-l-[4.75px]', placeholder:"Search here the topic you want to learn" %>
+      <%= f.submit class: 'bg-blue-400 p-2  cursor-pointer text-slate-200 rounded-r-[4.75px] font-bold' %>
+    <% end %>
+  </div>
 
-  <div id="tutorials" class="min-w-screen min-h-[90vh] bg-red-400 grid grid-flow-row grid-cols-4  justify-center">
+  <div id="tutorials" class="min-w-screen min-h-[90vh] bg-red-400 grid grid-flow-row grid-cols-4 justify-center">
     <%= render @tutorials%>
     <%= will_paginate @tutorials%>
+
   </div>
 </div>
+<!--
+-->

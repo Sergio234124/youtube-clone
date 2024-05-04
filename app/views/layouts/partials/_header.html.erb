@@ -9,7 +9,6 @@
         <%= link_to 'Tutorials', tutorials_path,class: "font-semibold text-slate-900" %>
         <% if user_signed_in?%>
             <%= link_to 'User settings', edit_user_registration_path, class: "font-semibold text-slate-900" %>
-            <%= link_to 'Log Out', destroy_user_session_path,method: :delete, class: "font-semibold text-slate-900" %>
             <%= link_to "New tutorial", new_tutorial_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
         <%else%>
             <%= link_to 'Log In', new_user_session_path, class: "font-semibold text-slate-900" %>

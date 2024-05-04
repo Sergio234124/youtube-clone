@@ -71,5 +71,5 @@ end
 
 gem "punching_bag"
 gem "tailwindcss-rails", "~> 2.5"
-gem 'haml', '~> 6.3'
 gem 'will_paginate', '~> 3.1'
+gem "ransack"
